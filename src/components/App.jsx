@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DisplayName from './DisplayName';
+import NamesList from './NamesList';
 
 class App extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class App extends Component {
             lastName: 'White',
         
         //Exercise 2 
-            names: ['Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly'],
+            names: ['Mike ', 'Nevin ', 'Aaron ', 'Tory ', 'Kelly '],
 
         //Exercise 3
             superheroes : [
@@ -39,6 +40,7 @@ class App extends Component {
         return ( 
             <div>
                 <DisplayName firstName = {this.state.firstName} lastName = {this.state.lastName} />
+                <NamesList names = {this.state.names} />
             </div>
          )
     }
