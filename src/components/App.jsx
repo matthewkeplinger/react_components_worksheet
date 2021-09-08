@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import DisplayName from './DisplayName';
 import NamesList from './NamesList';
 import AlertUser from './AlertUser';
+import SuperheroTable from './SuperheroTable';
 
 class App extends Component {
     constructor(props) {
@@ -20,19 +21,19 @@ class App extends Component {
                     superheroId: 1,
                     name: 'Batman',
                     primaryAbility: 'Wealthy',
-                    secondarAbility: 'Rich'
+                    secondaryAbility: 'Rich'
                 },
                 {
                     superheroId: 2,
                     name: 'Superman',
                     primaryAbility: 'Super strength',
-                    secondarAbility: 'Fly'
+                    secondaryAbility: 'Fly'
                 },
                 {
                     superheroId: 3,
                     name: 'Spiderman',
                     primaryAbility: 'Spider senses',
-                    secondarAbility: 'Shoots web'
+                    secondaryAbility: 'Shoots web'
                 }
             ]
         };
@@ -49,6 +50,7 @@ class App extends Component {
                 <DisplayName firstName = {this.state.firstName} lastName = {this.state.lastName} />
                 <NamesList names = {this.state.names} />
                 <AlertUser alert = {this.showAlert} />
+                <SuperheroTable superheroes = {this.state.superheroes} />
             </div>
          )
     }
