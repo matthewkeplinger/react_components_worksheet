@@ -5,8 +5,7 @@ const NamesList = (props) => {
     return(
         <div>
             <ul>{props.names}</ul>
-        </div>
-        
+        </div>      
     );
 }
 
