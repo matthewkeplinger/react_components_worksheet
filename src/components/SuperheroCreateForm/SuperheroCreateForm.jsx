@@ -28,7 +28,6 @@ class SuperheroCreateForm extends Component {
             secondaryAbility: this.state.superheroSecondaryAbility
         }
         this.props.addNewSuperhero(superhero);
-        console.log(this.superheroArray)
         this.setState({
             superheroId: '',
             name: '',

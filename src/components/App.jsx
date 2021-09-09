@@ -4,19 +4,25 @@ import NamesList from './NamesList/NamesList';
 import AlertUser from './AlertUser/AlertUser';
 import SuperheroTable from './SuperheroTable/SuperheroTable';
 import SuperheroCreateForm from './SuperheroCreateForm/SuperheroCreateForm';
+import DisplayJoke from './DisplayJoke/DisplayJoke';
+import axios from 'axios';
 
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-        //Exercise 1
+        this.state = {
+            jokes : [{
+                setup: '',
+                delivery: ''
+            }],
+        //Worksheet 1, Exercise 1
             firstName: 'Reggie',
             lastName: 'White',
         
-        //Exercise 2 
+        //Worksheet 1, Exercise 2 
             names: ['Mike ', 'Nevin ', 'Aaron ', 'Tory ', 'Kelly '],
 
-        //Exercise 3
+        //Worksheet 1, Exercise 3
             superheroes : [
                 {
                     superheroId: 1,
@@ -36,14 +42,30 @@ class App extends Component {
                     primaryAbility: 'Spider senses',
                     secondaryAbility: 'Shoots web'
                 }
-            ]
+            ],
         };
     }
 
+    //Worksheet 2, Jokes
+    componentDidMount(){
+        this.getJokes();
+    }
+
+    //get jokes API async
+    async getJokes(){
+        let response = await axios.get('https://v2.jokeapi.dev/joke/Programming?type=twopart&amount=5')
+        let myJoke = response.data;
+        this.setState({
+            jokes: myJoke
+        });
+    }
+     
+    //alert for Worksheet 1, Exercise 3
     showAlert = () => {
         alert('devCodeCamp')
     }
 
+    //Worksheet 2, Exercise 1
     addNewSuperhero(superhero){
         let tempSupers = this.state.superheroes
         tempSupers.push(superhero);
@@ -60,6 +82,7 @@ class App extends Component {
                 <AlertUser alert = {this.showAlert} />
                 <SuperheroTable superheroes = {this.state.superheroes} />
                 <SuperheroCreateForm addNewSuperhero = {this.addNewSuperhero.bind(this)} superheroArray = {this.state.superheroes} />
+                <DisplayJoke joke={this.state.jokes}/>
             </div>
          )
     }
