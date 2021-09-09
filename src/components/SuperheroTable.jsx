@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './SuperheroTable.css';
 
 
 const SuperheroTable = (props) => {
