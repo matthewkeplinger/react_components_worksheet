@@ -51,7 +51,7 @@ class App extends Component {
     }
 
     //Worksheet 2, Exercise 1
-    addNewSuperhero(superhero){
+    addNewSuperhero = (superhero) => {
         let tempSupers = this.state.superheroes
         tempSupers.push(superhero);
         this.setState({

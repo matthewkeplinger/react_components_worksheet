@@ -21,19 +21,7 @@ class SuperheroCreateForm extends Component {
 
     handleSubmit(event){
         event.preventDefault();
-        const superhero = {
-            superheroId: this.props.superheroArray.length + 1,
-            name: this.state.superheroName,
-            primaryAbility: this.state.superheroPrimaryAbility,
-            secondaryAbility: this.state.superheroSecondaryAbility
-        }
-        this.props.addNewSuperhero(superhero);
-        this.setState({
-            superheroId: '',
-            name: '',
-            primaryAbility: '',
-            secondaryAbility: ''
-        });
+        this.props.addNewSuperhero(this.state)
     }
 
     render() { 
@@ -43,13 +31,13 @@ class SuperheroCreateForm extends Component {
                 <form onSubmit = {this.handleSubmit}>
                     <table>
                             <tr>
-                                <td>Superhero Name: </td><td><input type = "text" name = "superheroName" value={this.state.superheroName} onChange= {this.handleChange}/></td>
+                                <td>Superhero Name: </td><td><input type = "text" name = "name" value={this.state.name} onChange= {this.handleChange}/></td>
                             </tr>
                             <tr>
-                                <td>Primary Ability: </td><td><input type = "text" name = "superheroPrimaryAbility" value={this.state.superheroPrimaryAbility} onChange= {this.handleChange}/></td>
+                                <td>Primary Ability: </td><td><input type = "text" name = "primaryAbility" value={this.state.primaryAbility} onChange= {this.handleChange}/></td>
                             </tr>
                             <tr>
-                                <td>Superhero Name: </td><td><input type = "text" name = "superheroSecondaryAbility" value={this.state.superheroSecondaryAbility} onChange= {this.handleChange}/></td>
+                                <td>Superhero Name: </td><td><input type = "text" name = "secondaryAbility" value={this.state.secondaryAbility} onChange= {this.handleChange}/></td>
                             </tr>                
                     </table>
                     <input type = "submit" value = "Add hero"/>
