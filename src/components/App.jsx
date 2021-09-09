@@ -11,10 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            jokes : [{
-                setup: '',
-                delivery: ''
-            }],
+
         //Worksheet 1, Exercise 1
             firstName: 'Reggie',
             lastName: 'White',
@@ -46,20 +43,7 @@ class App extends Component {
         };
     }
 
-    //Worksheet 2, Jokes
-    componentDidMount(){
-        this.getJokes();
-    }
-
-    //get jokes API async
-    async getJokes(){
-        let response = await axios.get('https://v2.jokeapi.dev/joke/Programming?type=twopart&amount=5')
-        let myJoke = response.data;
-        this.setState({
-            jokes: myJoke
-        });
-    }
-     
+ 
     //alert for Worksheet 1, Exercise 3
     showAlert = () => {
         alert('devCodeCamp')
