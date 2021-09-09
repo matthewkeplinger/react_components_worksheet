@@ -11,6 +11,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            jokes : [],
 
         //Worksheet 1, Exercise 1
             firstName: 'Reggie',
@@ -58,6 +59,19 @@ class App extends Component {
         })
     }
 
+   //Worksheet 2, Jokes
+   componentDidMount(){
+    this.getJokes();
+    }
+
+    //get jokes API async
+    async getJokes(){
+        let response = await axios.get('https://v2.jokeapi.dev/joke/Programming?type=twopart&amount=2')
+        this.setState({
+            jokes: response.data.jokes
+        });
+    }
+
     render() { 
         return ( 
             <div>
@@ -66,7 +80,7 @@ class App extends Component {
                 <AlertUser alert = {this.showAlert} />
                 <SuperheroTable superheroes = {this.state.superheroes} />
                 <SuperheroCreateForm addNewSuperhero = {this.addNewSuperhero.bind(this)} superheroArray = {this.state.superheroes} />
-                <DisplayJoke joke={this.state.jokes}/>
+                <DisplayJoke jokes={this.state.jokes}/>
             </div>
          )
     }
