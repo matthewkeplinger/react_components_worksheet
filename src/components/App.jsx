@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import DisplayName from './DisplayName';
-import NamesList from './NamesList';
-import AlertUser from './AlertUser';
-import SuperheroTable from './SuperheroTable/Superherotable';
+import DisplayName from './DisplayName/DisplayName';
+import NamesList from './NamesList/NamesList';
+import AlertUser from './AlertUser/AlertUser';
+import SuperheroTable from './SuperheroTable/SuperheroTable';
+import SuperheroCreateForm from './SuperheroCreateForm/SuperheroCreateForm';
 
 class App extends Component {
     constructor(props) {
@@ -43,6 +44,13 @@ class App extends Component {
         alert('devCodeCamp')
     }
 
+    addNewSuperhero(superhero){
+        let tempSupers = this.state.superheroes
+        tempSupers.push(superhero);
+        this.setState({
+            superheroes: tempSupers
+        })
+    }
 
     render() { 
         return ( 
@@ -51,6 +59,7 @@ class App extends Component {
                 <NamesList names = {this.state.names} />
                 <AlertUser alert = {this.showAlert} />
                 <SuperheroTable superheroes = {this.state.superheroes} />
+                <SuperheroCreateForm addNewSuperhero = {this.addNewSuperhero.bind(this)} superheroArray = {this.state.superheroes} />
             </div>
          )
     }
