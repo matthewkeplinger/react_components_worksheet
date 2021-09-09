@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DisplayName from './DisplayName';
 import NamesList from './NamesList';
 import AlertUser from './AlertUser';
-import SuperheroTable from './SuperheroTable';
+import SuperheroTable from './SuperheroTable/Superherotable';
 
 class App extends Component {
     constructor(props) {
