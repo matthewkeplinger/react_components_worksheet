@@ -11,7 +11,7 @@ const SuperheroTable = (props) => {
                     <th>Secondary Ability: </th>
                 </tr>
                 {props.superheroes.map(superhero => (
-                    <tr>
+                    <tr key={superhero.superheroId}>
                         <td>{superhero.name}</td>
                         <td>{superhero.primaryAbility}</td>
                         <td>{superhero.secondaryAbility}</td>
